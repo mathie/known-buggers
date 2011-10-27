@@ -16,6 +16,9 @@ gem 'jquery-rails'
 gem 'foreman'
 gem 'thin'
 
+gem 'pivotal-tracker'
+gem 'rdiscount'
+
 group :development do
   gem 'heroku', require: false
 end

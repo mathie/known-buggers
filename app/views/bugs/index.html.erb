@@ -1,0 +1,27 @@
+<h1>Bugs</h1>
+
+<p>
+  Here is a list of all the bugs we currently have tracked in Pivotal Tracker:
+</p>
+
+<div class="row">
+  <div class="span8">
+    <h2>Platform Bugs</h2>
+
+    <ul>
+      <% @platform_bugs.each do |bug| %>
+        <%= render 'bug', bug: bug %>
+      <% end %>
+    </ul>    
+  </div>
+
+  <div class="span8">
+    <h2>Product Bugs</h2>
+
+    <ul>
+      <% @product_bugs.each do |bug| %>
+        <%= render 'bug', bug: bug %>
+      <% end %>
+    </ul>    
+  </div>
+</div>
