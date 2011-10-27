@@ -1,14 +1,83 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>KnownBuggers</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta itemprop="name" content="Known Buggers">
+    <meta itemprop="description" content="A semi public view of the bugs in Pivotal Tracker">
 
-<%= yield %>
+    <title><%= controller.controller_name.humanize %> &ndash; Known Buggers</title>
 
-</body>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-25704631-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <nav class="topbar">
+      <div class="fill">
+        <div class="container">
+          <h3><%= link_to 'Known Buggers', root_path %></h3>
+
+          <ul>
+            <li class="active"><%= link_to 'Home', root_path %></li>
+          </ul>
+
+          <ul class="nav secondary-nav">
+            <li><%= link_to 'Sign in', '#' %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <article id="main" role="main" class="container">
+      <section id="flash">
+        <% if notice.present? %>
+          <div class="alert-message success">
+            <a href="#" class="close">x</a>
+            <p>
+              <%= notice.html_safe %>
+            </p>
+          </div>
+        <% end %>
+        <% if alert.present? %>
+          <div class="alert-message error">
+            <a href="#" class="close">x</a>
+            <p>
+              <%= alert.html_safe %>
+            </p>
+          </div>
+        <% end %>
+      </section>
+
+      <%= yield %>
+    </article>
+
+    <footer class="container">
+      <p style="float:right"><g:plusone></g:plusone></p>
+      <p>
+        Copyright &copy; <%= Date.today.year %>, <%= link_to 'Graeme Mathieson', 'http://woss.name/' %>.
+      </p>
+    </footer>
+  </body>
 </html>
