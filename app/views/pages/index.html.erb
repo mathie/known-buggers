@@ -1,2 +1,17 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<div class="hero-unit">
+  <h1>Known Buggers <small>There are the things we know we know&hellip;</small></h1>
+
+  <p>
+    It's not always useful to give the entire team access to <a
+    href="http://www.pivotaltracker.com/">Pivotal Tracker</a>. (Apart from
+    anything else, with their per-user pricing, it can cost a fortune to let
+    everyone in!) However, it is useful to give the wider team some visibility
+    of the content in Tracker. This app is here to give the whole <a
+    href="http://www.freagent.com/">FreeAgent</a> team visibility into the
+    known bugs in our apps and the relative priority for fixing them.
+  </p>
+
+  <p style="text-align: center">
+    <%= link_to 'Sign up now &rarr;'.html_safe, '#', class: 'btn primary large' %>
+  </p>
+</div>
