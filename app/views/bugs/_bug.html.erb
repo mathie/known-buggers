@@ -12,7 +12,7 @@
     <% end %>
 
     <% (bug.labels || "").split(',').each do |label| %>
-      <span class="label"><%= label %></span>
+      <%= link_to label, tagged_path(label), class: 'label' %>
     <% end %>
   </p>
 

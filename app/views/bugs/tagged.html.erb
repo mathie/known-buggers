@@ -1,0 +1,7 @@
+<h1>Bugs tagged <%= @tags.to_sentence two_words_connector: ' or ', last_word_connector: ', or ' %></h1>
+
+<p>
+  Here is a list of all the bugs tagged <%= @tags.to_sentence two_words_connector: ' or ', last_word_connector: ', or ' %>:
+</p>
+
+<%= render 'bugs', platform_bugs: @platform_bugs, product_bugs: @product_bugs %>
