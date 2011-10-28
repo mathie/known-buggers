@@ -12,6 +12,25 @@ class BugsController < ApplicationController
     @platform_bugs = platform_bugs :label => @tags
   end
 
+  def in_state
+    @state = params[:state]
+    pt_current_state = case @state
+    when 'fixed'
+      'accepted'
+    when 'in_progress'
+      ['started', 'finished', 'rejected']
+    when 'scheduled'
+      'unstarted'
+    when 'unscheduled'
+      'unscheduled'
+    else
+      raise "Unsupported state"
+    end
+
+    @product_bugs  = product_bugs  :current_state => pt_current_state
+    @platform_bugs = platform_bugs :current_state => pt_current_state
+  end
+
   private
   def projects
     @projects ||= PivotalTracker::Project.all.select { |project| project.account == 'Olly Headey' }

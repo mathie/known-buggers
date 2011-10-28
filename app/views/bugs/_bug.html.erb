@@ -2,13 +2,13 @@
   <p>
     <strong><%= bug.name %></strong>
     <% if bug.current_state == 'accepted' %>
-      <span class="label success">Fixed!</span>
+      <%= link_to 'Fixed!', in_state_path('fixed'), class: 'label success' %>
     <% elsif ['started', 'finished', 'rejected'].include?(bug.current_state) %>
-      <span class="label warning">In progress</span>
+      <%= link_to 'In progress', in_state_path('in_progress'), class: 'label warning' %>
     <% elsif bug.current_state == 'unstarted' %>
-      <span class="label important">Scheduled</span>
+      <%= link_to 'Scheduled', in_state_path('scheduled'), class: 'label important' %>
     <% else %>
-      <span class="label notice">Unscheduled</span>
+      <%= link_to 'Unscheduled', in_state_path('unscheduled'), class: 'label notice' %>
     <% end %>
 
     <% (bug.labels || "").split(',').each do |label| %>

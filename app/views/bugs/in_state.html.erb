@@ -1,0 +1,7 @@
+<h1>Bugs which are <%= @state.humanize %></h1>
+
+<p>
+  Here is a list of all the bugs which are <%= @state.humanize %>:
+</p>
+
+<%= render 'bugs', platform_bugs: @platform_bugs, product_bugs: @product_bugs %>
